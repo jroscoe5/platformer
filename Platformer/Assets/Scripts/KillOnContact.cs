@@ -11,6 +11,7 @@ public class KillOnContact : MonoBehaviour
     public GameObject Player;
     public PlayerManager PlayerManager;
     public TextMeshProUGUI DeathCounter;
+    public AudioSource AudioSource;
 
     private Collider2D playerHeadCollider, playerFeetCollider;
 
@@ -23,9 +24,13 @@ public class KillOnContact : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    { 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (KillTilesCollider.IsTouching(playerHeadCollider)
-            || KillTilesCollider.IsTouching(playerFeetCollider))
+        || KillTilesCollider.IsTouching(playerFeetCollider))
         {
             KillPlayer();
         }
@@ -36,6 +41,10 @@ public class KillOnContact : MonoBehaviour
         Player.SetActive(false);
         // Increment death count
         DeathCounter.text = (++PlayerManager.deathCount).ToString();
+
+        // Play sound
+        AudioSource.Play(0);
+
         // Reset player
         StartCoroutine(ResetInOneSec());
     }
