@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -34,7 +35,14 @@ public class KillOnContact : MonoBehaviour
         // Increment death count
         DeathCounter.text = (++PlayerManager.deathCount).ToString();
         // Reset player
+        StartCoroutine(ResetInOneSec());
+    }
+
+    IEnumerator ResetInOneSec()
+    {
+        yield return new WaitForSeconds(1f);
         Player.transform.position = PlayerManager.spawnPos;
         Player.SetActive(true);
+
     }
 }
