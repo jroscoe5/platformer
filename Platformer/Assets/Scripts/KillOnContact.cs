@@ -18,6 +18,11 @@ public class KillOnContact : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Player = GameObject.Find("Player");
+        KillTilesCollider = this.GetComponent<Collider2D>();
+        PlayerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        DeathCounter = GameObject.Find("DeathCounter").GetComponent<TextMeshProUGUI>();
+        AudioSource = GameObject.Find("DeathNoise").GetComponent<AudioSource>();
         playerHeadCollider = Player.GetComponent<BoxCollider2D>();
         playerFeetCollider = Player.GetComponent<CircleCollider2D>();
     }
