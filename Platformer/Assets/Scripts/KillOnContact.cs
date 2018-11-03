@@ -17,12 +17,15 @@ public class KillOnContact : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Player = GameObject.Find("Player");
+        KillTilesCollider = this.GetComponent<Collider2D>();
+        PlayerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        DeathCounter = GameObject.Find("DeathCounter").GetComponent<TextMeshProUGUI>();
         playerHeadCollider = Player.GetComponent<BoxCollider2D>();
         playerFeetCollider = Player.GetComponent<CircleCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (KillTilesCollider.IsTouching(playerHeadCollider)
             || KillTilesCollider.IsTouching(playerFeetCollider))
