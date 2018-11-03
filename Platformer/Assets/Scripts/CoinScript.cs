@@ -28,12 +28,12 @@ public class CoinScript : MonoBehaviour {
             || CoinCollider.IsTouching(playerFeetCollider))
         {
             this.gameObject.SetActive(false);
-            AddToScore();
+            SubtractFromScore();
         }
     }
 
-    private void AddToScore()
+    private void SubtractFromScore()
     {
-        Score.text = (++PlayerManager.Score).ToString();
+        Score.text = (--PlayerManager.Score).ToString();
     }
 }
