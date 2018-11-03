@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/DeathTiles.unity
+- path: Assets/Scenes/Coins.unity
   isLoaded: 1
   isActive: 1

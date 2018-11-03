@@ -12,18 +12,20 @@ public class KillOnContact : MonoBehaviour
     public PlayerManager PlayerManager;
     public TextMeshProUGUI DeathCounter;
 
-    private Collider2D playerHeadCollider;
+    private Collider2D playerHeadCollider, playerFeetCollider;
 
     // Use this for initialization
     void Start()
     {
         playerHeadCollider = Player.GetComponent<BoxCollider2D>();
+        playerFeetCollider = Player.GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (KillTilesCollider.IsTouching(playerHeadCollider))
+        if (KillTilesCollider.IsTouching(playerHeadCollider)
+            || KillTilesCollider.IsTouching(playerFeetCollider))
         {
             KillPlayer();
         }
