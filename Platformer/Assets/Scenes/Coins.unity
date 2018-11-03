@@ -4486,6 +4486,7 @@ MonoBehaviour:
   deathCount: 0
   Score: 0
   spawnPos: {x: 25, y: 15, z: 0}
+  Player: {fileID: 519089114}
 --- !u!4 &1832505172
 Transform:
   m_ObjectHideFlags: 0
