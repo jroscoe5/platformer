@@ -18,6 +18,4 @@ public class PlayerManager : MonoBehaviour {
 		
 	}
 
-    public void IncDeathCount() { deathCount++;  }
-
 }

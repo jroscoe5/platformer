@@ -8,28 +8,21 @@ public class KillOnContact : MonoBehaviour
 
     public Collider2D KillTilesCollider;
     public GameObject Player;
-    public GameObject PlayerManager;
+    public PlayerManager PlayerManager;
     public TextMeshProUGUI DeathCounter;
 
-    private Collider2D playerFeetCollider, playerHeadCollider;
-
-    private int killCount;
-    bool playerAlive;
+    private Collider2D playerHeadCollider;
 
     // Use this for initialization
     void Start()
     {
-        playerAlive = true;
-        killCount = 0;
-        playerFeetCollider = Player.GetComponent<CircleCollider2D>();
         playerHeadCollider = Player.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ((KillTilesCollider.IsTouching(playerHeadCollider)
-            || KillTilesCollider.IsTouching(playerFeetCollider)) && playerAlive)
+        if (KillTilesCollider.IsTouching(playerHeadCollider))
         {
             KillPlayer();
         }
@@ -37,11 +30,11 @@ public class KillOnContact : MonoBehaviour
 
     private void KillPlayer()
     {
-        playerAlive = false;
+        Player.SetActive(false);
         // Increment death count
-        DeathCounter.text = (++killCount).ToString();
+        DeathCounter.text = (++PlayerManager.deathCount).ToString();
         // Reset player
-        Player.transform.position = new Vector3(24.63f, 15.23f, 0f);
-        playerAlive = true;
+        Player.transform.position = PlayerManager.spawnPos;
+        Player.SetActive(true);
     }
 }
