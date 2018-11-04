@@ -1436,8 +1436,9 @@ GameObject:
   - component: {fileID: 1120325291}
   - component: {fileID: 1120325293}
   - component: {fileID: 1120325292}
+  - component: {fileID: 1120325294}
   m_Layer: 0
-  m_Name: Blocks
+  m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1505,16 +1506,49 @@ Tilemap:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1120325290}
   m_Enabled: 1
-  m_Tiles: {}
+  m_Tiles:
+  - first: {x: 27, y: 12, z: 0}
+    second:
+      m_TileIndex: 0
+      m_TileSpriteIndex: 0
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   m_AnimatedTiles: {}
-  m_TileAssetArray: []
-  m_TileSpriteArray: []
-  m_TileMatrixArray: []
-  m_TileColorArray: []
+  m_TileAssetArray:
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 0c85a008c622f1b48968222bd9a10b6c, type: 2}
+  m_TileSpriteArray:
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 5b0011609bd1b0c449b10bf727fded2f, type: 3}
+  m_TileMatrixArray:
+  - m_RefCount: 1
+    m_Data:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  m_TileColorArray:
+  - m_RefCount: 1
+    m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 0, y: 0, z: 1}
+  m_Size: {x: 28, y: 13, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -1534,6 +1568,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1120325294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1120325290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95fc474593bb6d046aa6e2ad49c0bac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1729592821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,7 +1613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95.34979, y: -25.64}
+  m_AnchoredPosition: {x: -95.34979, y: -25.639893}
   m_SizeDelta: {x: 190.7, y: 51.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729592823
@@ -3911,6 +3956,7 @@ MonoBehaviour:
   deathCount: 0
   Score: 0
   spawnPos: {x: 25, y: 15, z: 0}
+  Player: {fileID: 519089114}
 --- !u!4 &1832505172
 Transform:
   m_ObjectHideFlags: 0

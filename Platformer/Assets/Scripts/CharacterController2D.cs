@@ -60,6 +60,13 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
+    public void Kock(bool knock)
+    {
+        if (knock)
+        {
+            
+        }
+    }
 
 	public void Move(float move, bool crouch, bool jump)
 	{
