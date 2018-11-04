@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/Level Four.unity
-=======
-- path: Assets/Scenes/Coins.unity
->>>>>>> a537e7b3abe633bcbcc302d2e7f2fef5d5b60e79
   isLoaded: 1
   isActive: 1
