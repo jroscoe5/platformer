@@ -223,7 +223,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8f455b86ccb446840b948d896378d618, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -398,6 +398,28 @@ Transform:
   m_Father: {fileID: 519089115}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &417736524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1679464335390980, guid: 63b5389800dfc9a499f17573d63f1d1a,
+    type: 2}
+  m_PrefabInternal: {fileID: 967429837}
+--- !u!114 &417736525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417736524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2168394b8cbfe1045a50f2716c6420c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DoorCollider: {fileID: 0}
+  Player: {fileID: 0}
+  PlayerManager: {fileID: 0}
+  Audio: {fileID: 0}
+  animator: {fileID: 0}
+  knocked: 0
 --- !u!1 &519089114
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +490,7 @@ MonoBehaviour:
   animator: {fileID: 519089116}
   runSpeed: 40
   crouch: 0
+  knock: 0
 --- !u!58 &519089118
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -579,11 +602,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnKnockEvent:
-    m_PersistentCalls:
-      m_Calls: []
     m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!212 &519089122
@@ -1255,7 +1273,17 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 5b0011609bd1b0c449b10bf727fded2f,
         type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 1679464335390980, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_Name
+      value: Door
+      objectReference: {fileID: 0}
+    - target: {fileID: 95686571588771008, guid: 63b5389800dfc9a499f17573d63f1d1a,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 04dff2836290a0340af869b5b28c30e5, type: 2}
+    m_RemovedComponents:
+    - {fileID: 114604340825142858, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &967429838 stripped

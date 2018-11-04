@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	float horizontalMove = 0f;
 	bool jump = false;
 	public bool crouch = false;
-    bool knock = false;
+    public bool knock = false;
 
 	// Update is called once per frame
 	void Update () {
@@ -20,8 +20,13 @@ public class PlayerMovement : MonoBehaviour {
 		horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
 		animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (Input.GetButtonUp("Active"))
+        {
+            OnKocking(false);
+            StartCoroutine(KnockingTrue());
+        }
 
-		if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
 		{
 			jump = true;
 			animator.SetBool("IsJumping", true);
@@ -38,12 +43,19 @@ public class PlayerMovement : MonoBehaviour {
         {
             OnKocking(true);
         }
-        else if (Input.GetButtonUp("Active"))
-        {
-            OnKocking(false);
-        }
+    }
+
+    IEnumerator KnockingTrue()
+    {
+        // make player wait to finish knock before "knocking"
+        yield return new WaitForSeconds(.7f);
+        knock = true;
+        yield return new WaitForSeconds(.1f);
+        knock = false;
 
     }
+
+
 
 	public void OnLanding ()
 	{

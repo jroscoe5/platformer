@@ -31,9 +31,6 @@ public class CharacterController2D : MonoBehaviour
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
 
-    public BoolEvent OnKnockEvent;
-    private bool knocking = false;
-
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -43,9 +40,6 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
-
-        if (OnKnockEvent == null)
-            OnCrouchEvent = new BoolEvent();
 	}
 
 	private void FixedUpdate()
@@ -66,19 +60,7 @@ public class CharacterController2D : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
-
-        if (Input.GetButtonDown("Active"))
-        {
-            OnKnockEvent.Invoke(true);
-        }
 	}
-
-    IEnumerator Knock()
-    {
-        OnKnockEvent.Invoke(true);
-        yield return new WaitForSeconds(1);
-        OnKnockEvent.Invoke(false);
-    }
 
 	public void Move(float move, bool crouch, bool jump)
 	{
