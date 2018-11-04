@@ -58,6 +58,15 @@ public class KillOnContact : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Player.transform.position = PlayerManager.spawnPos;
+        Player.GetComponent<PlayerMovement>().crouch = false;
+
+        //respawn objects
+        foreach(GameObject g in PlayerManager.respawnObjects)
+        {
+            g.SetActive(true);
+        }
+        PlayerManager.respawnObjects.Clear();
+
         Player.SetActive(true);
 
     }
