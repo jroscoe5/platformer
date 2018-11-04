@@ -467,6 +467,7 @@ MonoBehaviour:
   controller: {fileID: 519089121}
   animator: {fileID: 519089116}
   runSpeed: 40
+  crouch: 0
 --- !u!58 &519089118
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -578,6 +579,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnKnockEvent:
+    m_PersistentCalls:
+      m_Calls: []
     m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!212 &519089122
@@ -1204,6 +1210,59 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 887209872}
   m_CullTransparentMesh: 0
+--- !u!1001 &967429837
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1120325291}
+    m_Modifications:
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 29.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212545855734638994, guid: 63b5389800dfc9a499f17573d63f1d1a,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b0011609bd1b0c449b10bf727fded2f,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 63b5389800dfc9a499f17573d63f1d1a, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &967429838 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4456421212263172, guid: 63b5389800dfc9a499f17573d63f1d1a,
+    type: 2}
+  m_PrefabInternal: {fileID: 967429837}
 --- !u!1 &981602203
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,7 +1511,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 967429838}
   m_Father: {fileID: 703315112}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3911,7 +3971,8 @@ MonoBehaviour:
   deathCount: 0
   Score: 0
   spawnPos: {x: 25, y: 15, z: 0}
-  Player: {fileID: 0}
+  respawnObjects: []
+  Player: {fileID: 519089114}
 --- !u!4 &1832505172
 Transform:
   m_ObjectHideFlags: 0
