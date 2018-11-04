@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DoorScript : MonoBehaviour {
@@ -9,6 +10,7 @@ public class DoorScript : MonoBehaviour {
     public PlayerManager PlayerManager;
     public AudioSource Audio;
     public Animator animator;
+    public int level;
 
     public bool knocked;
 
@@ -30,6 +32,7 @@ public class DoorScript : MonoBehaviour {
             || DoorCollider.IsTouching(playerFeetCollider)) &&
             Player.GetComponent<PlayerMovement>().knock == true)
         {
+            SceneManager.LoadScene(level + 1);
             animator.SetBool("Knocked", true);
         }
     }
