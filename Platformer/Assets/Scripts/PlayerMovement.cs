@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 	float horizontalMove = 0f;
 	bool jump = false;
 	bool crouch = false;
+    bool knock = false;
 
 	// Update is called once per frame
 	void Update () {
@@ -33,8 +34,16 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			crouch = false;
 		}
+        if (Input.GetButtonDown("Active"))
+        {
+            OnKocking(true);
+        }
+        else if (Input.GetButtonUp("Active"))
+        {
+            OnKocking(false);
+        }
 
-	}
+    }
 
 	public void OnLanding ()
 	{
@@ -45,6 +54,11 @@ public class PlayerMovement : MonoBehaviour {
 	{
 		animator.SetBool("IsCrouching", isCrouching);
 	}
+
+    public void OnKocking (bool isKnocking)
+    {
+        animator.SetBool("IsKnocking", isKnocking);
+    }
 
 	void FixedUpdate ()
 	{
