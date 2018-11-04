@@ -61,13 +61,12 @@ public class KillOnContact : MonoBehaviour
         Player.GetComponent<PlayerMovement>().crouch = false;
 
         //respawn objects
+        if(PlayerManager.respawnObjects.Count > 0)
         foreach(GameObject g in PlayerManager.respawnObjects)
         {
             g.SetActive(true);
         }
         PlayerManager.respawnObjects.Clear();
-
         Player.SetActive(true);
-
     }
 }
