@@ -101,6 +101,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   PlayerManager: {fileID: 0}
   Score: {fileID: 0}
+  Audio: {fileID: 0}
 --- !u!212 &212545855734638994
 SpriteRenderer:
   m_ObjectHideFlags: 1
