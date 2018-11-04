@@ -11,7 +11,6 @@ public class CoinScript : MonoBehaviour {
     public TextMeshProUGUI Score;
 
     private Collider2D playerHeadCollider, playerFeetCollider;
-
     private void Start()
     {
         Player = GameObject.Find("Player");
@@ -28,12 +27,13 @@ public class CoinScript : MonoBehaviour {
             || CoinCollider.IsTouching(playerFeetCollider))
         {
             this.gameObject.SetActive(false);
-            SubtractFromScore();
+            PlayerManager.respawnObjects.Add(this.gameObject);
+            ModifyScore();
         }
     }
 
-    private void SubtractFromScore()
+    private void ModifyScore()
     {
-        Score.text = (--PlayerManager.Score).ToString();
+        Score.text = (Random.Range(0,10) == 0)? (--PlayerManager.Score).ToString(): (++PlayerManager.Score).ToString();
     }
 }
