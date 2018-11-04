@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/DOORSDOORSDOORS.unity
-=======
-- path: Assets/Scenes/Level Three.unity
->>>>>>> 7fb492afaa29476dd454ff213eb93b71676f9b08
   isLoaded: 1
   isActive: 1
